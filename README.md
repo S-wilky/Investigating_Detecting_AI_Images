@@ -5,14 +5,14 @@ I will be using images.
 
 ## Step 2: Collect Examples
 I labeled the human generated images from subreddit r/dndcommissions (https://www.reddit.com/r/dndcommissions/) as:
-human_ex1
-human_ex2
-human_ex3
+-human_ex1
+-human_ex2
+-human_ex3
 
 I saved the AI generated images from microsoft Copilot as:
-AI_ex1
-AI_ex2
-AI_ex3
+-AI_ex1
+-AI_ex2
+-AI_ex3
 
 ## Step 3: Brainstorm Specific Traits with AI
 AI Response:
