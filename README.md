@@ -5,14 +5,14 @@ I will be using images.
 
 ## Step 2: Collect Examples
 I labeled the human generated images from subreddit r/dndcommissions (https://www.reddit.com/r/dndcommissions/) as:
--human_ex1
--human_ex2
--human_ex3
+  - human_ex1
+  - human_ex2
+  - human_ex3
 
 I saved the AI generated images from microsoft Copilot as:
--AI_ex1
--AI_ex2
--AI_ex3
+  - AI_ex1
+  - AI_ex2
+  - AI_ex3
 
 ## Step 3: Brainstorm Specific Traits with AI
 AI Response:
@@ -79,18 +79,18 @@ The initial code did not work. It was simply analyzing the different traits and 
 
 ## Step 5: Run the Program and Test It
 human_ex1
-Response: The image is likely AI-generated.
+  - Response: The image is likely AI-generated.
 human_ex2
-Response: The image is likely AI-generated.
+  - Response: The image is likely AI-generated.
 human_ex3
-Response: The image is likely AI-generated.
+  - Response: The image is likely AI-generated.
 
 AI_ex1
-Response: The image is likely AI-generated.
+  - Response: The image is likely AI-generated.
 AI_ex2
-Response: The image is likely AI-generated.
+  - Response: The image is likely AI-generated.
 AI_ex3
-Response: The image is likely AI-generated.
+  - Response: The image is likely AI-generated.
 
 The program incorrectly labeled all of the human generated images as AI, but correctly labeled all the AI generated images as AI. Either that, or reddit artists are secretely using AI for all their commissions (but I highly doubt that based on the quality of the artwork selected)!
 
@@ -104,7 +104,12 @@ Were there any examples it misclassified?
 
 ### 2. Feature Analysis:
 What aspects of the media (e.g., symmetry, coherence, artifacts) did the program analyze?
+1. Surface Artifacts
+2. Anatomical Inaccuracies
+3. Background and Context Clues
+   
 Why do you think these aspects were useful (or not useful) for detecting AI generation?
+  - I don't think any of these aspects were that useful due to the images that I selected, because they were quite detailed, so they were likely too complex for the simple program generated.
 
 ### 3. Limitations and Improvements:
 What limitations did you notice in the program’s approach?
