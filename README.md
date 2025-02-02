@@ -47,6 +47,25 @@ The 3 that I chose to work with were:
 3. Background and Context Clues
 
 ## Step 4: Prompt an AI to Write a Detection Program
+My Prompt:
+```
+Create a Python program to determine if an image is AI-generated or human-generated. The program should analyze the following traits: Surface Artifacts, Anatomical Inaccuracies, as well as Background and Context Clues. Use image processing libraries like OpenCV or PIL. Please include detailed comments explaining each step of the code.
+```
+
+AI Response*:
+```
+Here's a Python program that outlines the process of analyzing images for traits like surface artifacts, anatomical inaccuracies, and context clues using OpenCV and PIL (Pillow). The code includes comments to explain each step. Keep in mind that this example is a prototype and would require significant refinement and dataset training for practical use.
+
+Ai Image Analysis
+
+This program provides a starting point for analyzing images to differentiate between AI-generated and human-generated ones. Key features include:
+
+Surface Artifacts Detection: Uses edge detection to highlight unusual transitions.
+Anatomical Analysis: Finds contours to detect irregular shapes potentially present in AI-generated images.
+Background Consistency: Applies k-means clustering to detect uniform background colors.
+Make sure to test it with diverse image samples for meaningful results. Let me know if you'd like enhancements or further explanations.
+```
+*Code provided in "AI_Image_Analysis.py" file.
 
 
 ## Step 5: Run the Program and Test It
