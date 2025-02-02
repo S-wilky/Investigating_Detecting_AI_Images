@@ -80,17 +80,23 @@ The initial code did not work. It was simply analyzing the different traits and 
 ## Step 5: Run the Program and Test It
 human_ex1
   - Response: The image is likely AI-generated.
+
 human_ex2
   - Response: The image is likely AI-generated.
+
 human_ex3
   - Response: The image is likely AI-generated.
 
+
 AI_ex1
   - Response: The image is likely AI-generated.
+
 AI_ex2
   - Response: The image is likely AI-generated.
+
 AI_ex3
   - Response: The image is likely AI-generated.
+
 
 The program incorrectly labeled all of the human generated images as AI, but correctly labeled all the AI generated images as AI. Either that, or reddit artists are secretely using AI for all their commissions (but I highly doubt that based on the quality of the artwork selected)!
 
@@ -114,6 +120,7 @@ Why do you think these aspects were useful (or not useful) for detecting AI gene
 ### 3. Limitations and Improvements:
 What limitations did you notice in the program’s approach?
   - In the code itself it says it is a "Basic heuristic to classify image as AI-generated or not (This is a naive thresholding approach for demonstration purposes)." I'm sure I could fine tune the scores that it is judging against, but it also doesn't have any data to go off besides the basic scores, which is a big limitation. This example may also be limited by the images that I provided. They all have a lot going on in them, so even though they are high quality, they could be too much to analyze with this simple approach.
+
 How could the detection program be improved?
   - My own guess would be to try fine-tuning the scores until it labeled my images correctly, then test it out on other images. Alternatively, we could improve how it analyzes each of the traits based on more data.
   - In the code response from ChatGPT, it noted that this is a basic approach, and to let it know if I wanted help refining it to make it more accurate. When asked how I could do that, this was ChatGPT's response:
