@@ -4,7 +4,15 @@
 I will be using images.
 
 ## Step 2: Collect Examples
+I labeled the human generated images from subreddit r/dndcommissions (https://www.reddit.com/r/dndcommissions/) as:
+human_ex1
+human_ex2
+human_ex3
 
+I saved the AI generated images from microsoft Copilot as:
+AI_ex1
+AI_ex2
+AI_ex3
 
 ## Step 3: Brainstorm Specific Traits with AI
 AI Response:
@@ -67,15 +75,32 @@ Make sure to test it with diverse image samples for meaningful results. Let me k
 ```
 *Code provided in "AI_Image_Analysis.py" file.
 
+The initial code did not work. It was simply analyzing the different traits and then trying to display the analyzed image (which didn't work in VS code). After clarifying the requirement and asking it to rewrite the code, it seemed to run as expected, with varied results.
 
 ## Step 5: Run the Program and Test It
-Record how the program performs for each example, noting whether it correctly identifies the media as human-generated or AI-generated.
+human_ex1
+Response: The image is likely AI-generated.
+human_ex2
+Response: The image is likely AI-generated.
+human_ex3
+Response: The image is likely AI-generated.
+
+AI_ex1
+Response: The image is likely AI-generated.
+AI_ex2
+Response: The image is likely AI-generated.
+AI_ex3
+Response: The image is likely AI-generated.
+
+The program incorrectly labeled all of the human generated images as AI, but correctly labeled all the AI generated images as AI. Either that, or reddit artists are secretely using AI for all their commissions (but I highly doubt that based on the quality of the artwork selected)!
 
 ## Step 6: Reflect and Analyze
 
 ### 1. Program Performance:
 How well did the program differentiate between AI-generated and human-generated media?
+  - The program did not differentiate between AI and human generated images very well.
 Were there any examples it misclassified?
+  - It misclassified all of the human generated images.
 
 ### 2. Feature Analysis:
 What aspects of the media (e.g., symmetry, coherence, artifacts) did the program analyze?
@@ -83,5 +108,50 @@ Why do you think these aspects were useful (or not useful) for detecting AI gene
 
 ### 3. Limitations and Improvements:
 What limitations did you notice in the program’s approach?
+  - In the code itself it says it is a "Basic heuristic to classify image as AI-generated or not (This is a naive thresholding approach for demonstration purposes)." I'm sure I could fine tune the scores that it is judging against, but it also doesn't have any data to go off besides the basic scores, which is a big limitation. This example may also be limited by the images that I provided. They all have a lot going on in them, so even though they are high quality, they could be too much to analyze with this simple approach.
 How could the detection program be improved?
+  - My own guess would be to try fine-tuning the scores until it labeled my images correctly, then test it out on other images. Alternatively, we could improve how it analyzes each of the traits based on more data.
+  - In the code response from ChatGPT, it noted that this is a basic approach, and to let it know if I wanted help refining it to make it more accurate. When asked how I could do that, this was ChatGPT's response:
+```
+To refine the heuristic approach and improve accuracy, here are several suggestions for enhancements:
+
+1. Collect and Label a Dataset
+Gather a diverse dataset of both AI-generated and human-generated images.
+Label the dataset correctly to use it for testing and tuning.
+2. Feature Engineering
+Analyze more detailed traits from the image:
+
+Color Distributions: Analyze pixel intensity histograms for unusual patterns.
+Texture Analysis: Use techniques like Local Binary Patterns (LBP) to capture fine-grained details.
+Anomaly Detection: Compute differences between object structures (e.g., eyes, hands) compared to human anatomical norms.
+3. Machine Learning Models
+Replace simple heuristic thresholds with trained classifiers:
+
+Support Vector Machines (SVM) or Random Forests: Train them using extracted features (surface artifacts, edge counts, contour counts, color variances).
+Neural Networks: Fine-tune pre-trained image models like ResNet or MobileNet for binary classification.
+4. Use Pre-Trained Image Models (Transfer Learning)
+Use CNN-based models from TensorFlow or PyTorch to learn more complex image patterns.
+Example approach:
+python
+Copy
+Edit
+from tensorflow.keras.applications import MobileNetV2
+from tensorflow.keras.preprocessing.image import img_to_array
+
+# Example for feature extraction
+model = MobileNetV2(weights='imagenet', include_top=False)
+features = model.predict(np.expand_dims(img_to_array(image), axis=0))
+5. Advanced Image Quality Checks
+Use these image checks as new features:
+
+Surface Noise Patterns: Detect pixelation and digital noise typical of AI images.
+Face and Object Detection: Use tools like dlib or mediapipe to detect odd facial features or extra limbs.
+Background Symmetry: Identify perfect symmetries or repetitive structures, which may hint at AI generation.
+6. Statistical Analysis and Threshold Refinement
+Use cross-validation on your dataset to adjust thresholds for better classification accuracy. Examples:
+
+Fine-tune contour count thresholds for complex objects.
+Improve edge-detection limits by analyzing false positives and negatives.
+Would you like code examples for integrating a machine learning model or tools like TensorFlow? I'd be happy to guide you further!
+```
 
